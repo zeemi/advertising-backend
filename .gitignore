@@ -1,0 +1,15 @@
+/.idea
+
+/static
+/media
+
+api/db.sqlite3
+api/settings/local.py
+*.py[co]
+
+logs/*
+
+.coverage
+htmlcov
+
+**/.DS_Store
