@@ -38,9 +38,12 @@ class MetricsView(generics.ListAPIView):
     pagination_class = None
 
     def get_queryset(self):
-        kwargs = {}
+        params = {}
         if 'campaigns' in self.request.GET and self.request.GET['campaigns']:
-            kwargs['campaign__in'] = self.request.GET['campaigns'].split(',')
+            params['campaign__in'] = self.request.GET['campaigns'].split(',')
 
-        return Metric.objects.filter(**kwargs)
+        if 'data-sources' in self.request.GET and self.request.GET['data-sources']:
+            params['data_source__in'] = self.request.GET['data-sources'].split(',')
+
+        return Metric.objects.filter(**params)
 
