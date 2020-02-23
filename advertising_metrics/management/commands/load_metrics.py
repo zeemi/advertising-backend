@@ -1,6 +1,7 @@
 import csv
 import io
 from logging import getLogger
+from datetime import datetime
 
 from django.core.management.base import BaseCommand
 
@@ -23,7 +24,7 @@ csv_text = '''Date,Datasource,Campaign,Clicks,Impressions
 30.06.2019,Google Analytics,Summer Offer 2019 - Prio 2,14,480
 30.06.2019,Google Analytics,Summer Offer 2019 - Prio 3,44,1029
 30.06.2019,Google Analytics,Summer Offer 2019 - Prio 4,65,1148
-30.06.2019,Mailchimp,Summer Offer 2019 | Extension,852,
+30.06.2019,Mailchimp,Summer Offer 2019 | Extension,852, 15
 '''
 
 
@@ -38,12 +39,14 @@ class Command(BaseCommand):
         logger.info('Loading started ...')
         reader = csv.DictReader(fetch_data())
         logger.info('Data prepared.')
+
         for row in reader:
             campaign, is_created = Campaign.objects.update_or_create(name=row['Campaign'])
             data_source, is_created = DataSource.objects.update_or_create(name=row['Datasource'])
             Metric.objects.update_or_create(campaign=campaign, data_source=data_source,
-                                            date=row['Date'],
-                                            defaults={'clicks': row['Clicks'],
-                                                      'impressions': row['Impressions']})
+                                            date=datetime.strptime(row['Date'], '%d.%m.%Y'),
+                                            defaults={'clicks': row['Clicks'] or 0,
+                                                      'impressions': row['Impressions'] or 0})
+
 
         logger.info('Data processed.')
