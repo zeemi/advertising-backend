@@ -1,0 +1,265 @@
+[
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 1,
+    "fields": {
+      "name": "Summer Offer 2019 - Prio 1"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 2,
+    "fields": {
+      "name": "Summer Offer 2019 - Prio 2"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 3,
+    "fields": {
+      "name": "Summer Offer 2019 - Prio 3"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 4,
+    "fields": {
+      "name": "Summer Offer 2019 - Prio 4"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 5,
+    "fields": {
+      "name": "GDN Prospecting - Prio 1 Offer"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 6,
+    "fields": {
+      "name": "GDN Prospecting - Prio 2 Offer"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 7,
+    "fields": {
+      "name": "GDN RMKT - India Offer"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 8,
+    "fields": {
+      "name": "GDN RMKT - Prio 1 Offer"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 9,
+    "fields": {
+      "name": "GDN RMKT - Prio 2 Offer"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 10,
+    "fields": {
+      "name": "Summer Offer 2019 - India"
+    }
+  },
+  {
+    "model": "advertising_metrics.campaign",
+    "pk": 11,
+    "fields": {
+      "name": "Summer Offer 2019 | Extension"
+    }
+  },
+  {
+    "model": "advertising_metrics.datasource",
+    "pk": 1,
+    "fields": {
+      "name": "Google Adwords"
+    }
+  },
+  {
+    "model": "advertising_metrics.datasource",
+    "pk": 2,
+    "fields": {
+      "name": "Google Analytics"
+    }
+  },
+  {
+    "model": "advertising_metrics.datasource",
+    "pk": 3,
+    "fields": {
+      "name": "Mailchimp"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 1,
+    "fields": {
+      "data_source": 1,
+      "campaign": 1,
+      "clicks": 31,
+      "impressions": 502,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 2,
+    "fields": {
+      "data_source": 1,
+      "campaign": 2,
+      "clicks": 14,
+      "impressions": 480,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 3,
+    "fields": {
+      "data_source": 1,
+      "campaign": 3,
+      "clicks": 44,
+      "impressions": 1029,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 4,
+    "fields": {
+      "data_source": 1,
+      "campaign": 4,
+      "clicks": 65,
+      "impressions": 1148,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 5,
+    "fields": {
+      "data_source": 2,
+      "campaign": 5,
+      "clicks": 91,
+      "impressions": 25578,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 6,
+    "fields": {
+      "data_source": 2,
+      "campaign": 6,
+      "clicks": 131,
+      "impressions": 44641,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 7,
+    "fields": {
+      "data_source": 2,
+      "campaign": 7,
+      "clicks": 162,
+      "impressions": 23043,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 8,
+    "fields": {
+      "data_source": 2,
+      "campaign": 8,
+      "clicks": 28,
+      "impressions": 11271,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 9,
+    "fields": {
+      "data_source": 2,
+      "campaign": 9,
+      "clicks": 116,
+      "impressions": 27640,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 10,
+    "fields": {
+      "data_source": 2,
+      "campaign": 10,
+      "clicks": 48,
+      "impressions": 924,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 11,
+    "fields": {
+      "data_source": 2,
+      "campaign": 1,
+      "clicks": 31,
+      "impressions": 502,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 12,
+    "fields": {
+      "data_source": 2,
+      "campaign": 2,
+      "clicks": 14,
+      "impressions": 480,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 13,
+    "fields": {
+      "data_source": 2,
+      "campaign": 3,
+      "clicks": 44,
+      "impressions": 1029,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 14,
+    "fields": {
+      "data_source": 2,
+      "campaign": 4,
+      "clicks": 65,
+      "impressions": 1148,
+      "date": "2019-06-30"
+    }
+  },
+  {
+    "model": "advertising_metrics.metric",
+    "pk": 15,
+    "fields": {
+      "data_source": 3,
+      "campaign": 11,
+      "clicks": 852,
+      "impressions": 15,
+      "date": "2019-06-30"
+    }
+  }
+]
