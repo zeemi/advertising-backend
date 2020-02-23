@@ -10,10 +10,10 @@ class DataSource(models.Model):
 
 
 class Metric(models.Model):
-    data_sources = models.ForeignKey(DataSource, on_delete=models.CASCADE)
-    campaigns = models.ForeignKey(Campaign, on_delete=models.CASCADE)
-    clicks = models.BigIntegerField()
-    interactions = models.BigIntegerField()
+    data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+    campaign = models.ForeignKey(Campaign, on_delete=models.CASCADE)
+    clicks = models.BigIntegerField(default=0)
+    impressions = models.BigIntegerField(default=0)
     date = models.DateField()
 
 # todo:
