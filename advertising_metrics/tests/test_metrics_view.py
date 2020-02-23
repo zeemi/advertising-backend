@@ -2,7 +2,7 @@ from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
 
-from ..models import Metric
+from ..models import Metric, Campaign
 
 
 class MetricsTests(APITestCase):
@@ -19,3 +19,6 @@ class MetricsTests(APITestCase):
         response = self.client.get(self.METRICS_URL, format='json')
         self.assertEqual(Metric.objects.count(), len(response.data))
 
+    def test_listing_metrics_is_filtered_by_campaigns(self):
+        response = self.client.get('{}?campaigns=8,11'.format(self.METRICS_URL))
+        self.assertEqual(Metric.objects.filter(campaign__in=[8, 11]).count(), len(response.data))

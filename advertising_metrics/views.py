@@ -35,6 +35,12 @@ class MetricsView(generics.ListAPIView):
 
     serializer_class = MetricSerializer
     permission_classes = (AllowAny,)
-    queryset = Metric.objects.all()
     pagination_class = None
+
+    def get_queryset(self):
+        kwargs = {}
+        if 'campaigns' in self.request.GET and self.request.GET['campaigns']:
+            kwargs['campaign__in'] = self.request.GET['campaigns'].split(',')
+
+        return Metric.objects.filter(**kwargs)
 
