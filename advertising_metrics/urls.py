@@ -16,9 +16,10 @@ Including another URLconf
 
 from django.urls import path
 
-from .views import DataSourcesView, CampaignsView
+from .views import DataSourcesView, CampaignsView, MetricsView
 
 urlpatterns = [
     path(r'data-sources/', DataSourcesView.as_view(), name='data_sources'),
     path(r'campaigns/', CampaignsView.as_view(), name='campaigns'),
+    path(r'metrics/', MetricsView.as_view(), name='metrics'),
 ]

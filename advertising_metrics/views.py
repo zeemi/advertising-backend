@@ -2,8 +2,8 @@
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
-from .models import DataSource, Campaign
-from .serializers import DataSourceSerializer, CampaignSerializer
+from .models import DataSource, Campaign, Metric
+from .serializers import DataSourceSerializer, CampaignSerializer, MetricSerializer
 
 
 class DataSourcesView(generics.ListAPIView):
@@ -25,5 +25,16 @@ class CampaignsView(generics.ListAPIView):
     serializer_class = CampaignSerializer
     permission_classes = (AllowAny,)
     queryset = Campaign.objects.all()
+    pagination_class = None
+
+
+class MetricsView(generics.ListAPIView):
+    """
+    A simple View for listing and filtering metrics.
+    """
+
+    serializer_class = MetricSerializer
+    permission_classes = (AllowAny,)
+    queryset = Metric.objects.all()
     pagination_class = None
 

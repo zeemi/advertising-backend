@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import DataSource, Campaign
+from .models import DataSource, Campaign, Metric
 
 
 class DataSourceSerializer(serializers.ModelSerializer):
@@ -13,3 +13,9 @@ class CampaignSerializer(serializers.ModelSerializer):
     class Meta:
         model = Campaign
         exclude = []
+
+
+class MetricSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Metric
+        exclude = ('id', )
