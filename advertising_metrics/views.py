@@ -1,4 +1,4 @@
-
+from django.db.models import Sum
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
 
@@ -45,5 +45,6 @@ class MetricsView(generics.ListAPIView):
         if 'data-sources' in self.request.GET and self.request.GET['data-sources']:
             params['data_source__in'] = self.request.GET['data-sources'].split(',')
 
-        return Metric.objects.filter(**params)
-
+        return Metric.objects.filter(**params).values('date') \
+            .annotate(clicks=Sum('clicks')) \
+            .annotate(impressions=Sum('impressions'))

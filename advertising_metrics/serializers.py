@@ -15,7 +15,7 @@ class CampaignSerializer(serializers.ModelSerializer):
         exclude = []
 
 
-class MetricSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Metric
-        exclude = ('id', )
+class MetricSerializer(serializers.Serializer):
+    date = serializers.DateField()
+    clicks = serializers.IntegerField()
+    impressions = serializers.IntegerField()
