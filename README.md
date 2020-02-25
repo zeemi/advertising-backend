@@ -1,24 +1,27 @@
 # advertising-backend
 
-## tech-stack
+## Tech-stack
 Application has been written in python3 using Django==2.1 and djangorestframework==3.8.2.
 
-to start project locally:
-- prepare one of two environments listed below:
-  - create `local.py` settings from local.py.tmp template
-
+## Instruction to start locally
+- create `local.py` settings from local.py.tmp template
 - create python3 virtual environment and use it in all next steps
 - install `requirements.txt`
-- perform db migrations and remember to use proper settings:  python manage.py migrate  --settings=api.settings.<local/prod>
-- start server: python manage.py runserver  --settings=api.settings.<local/prod>
+- perform db migrations and remember to use proper settings:  `python manage.py migrate  --settings=api.settings.local`
+- start server: `python manage.py runserver  --settings=api.settings.local`
+- schedule by cron or run manually: `python manage.py load_metrics --settings=api.settings.local`
 
 
-## concept
-- returning data to frontend and keeping metrics up to date in local database is done independently
-- by design, server should be running periodically management command: `load_metrics` . Simplest scheduling could be done by `cron`, ex once per hour
-- there is a big room for improvements - direction should be chosen after knowing more about business case and policy of data updates
-- some of possible improvements:
-    - applying indexes
-    - aggregate data returned to frontend when timespan is big enough
-    - load csv in chunks
-    - batching database updates
+## Concept
+- analyzing/fetching raw metrics and returning prepared metrics to frontend are done independently
+- management command `load_metrics` should be run periodically on server. Simplest scheduling could be done by `cron` - for example once per hour
+- NOTE: this solution is not optimised in any way, but some of possible options are proposed in next step. Actual improvement should be chosen after knowing more about business case and policy of data updates
+
+## Suggested improvements:
+- apply indexes on `Metric` table
+- analyse if loading data finishes in acceptable time - hard deadline: it has to finish before next run, otherwise:
+    - batch database updates
+    - chunk and load csv partially if size can be a problem
+    - alternatively - load csv directly using database engine
+- add caching
+- update django version
